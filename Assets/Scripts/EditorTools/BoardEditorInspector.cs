@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+/*
 [CustomEditor(typeof(BoardEditor))]
 public class BoardEditorInspector : Editor
 {
@@ -35,5 +36,25 @@ public class BoardEditorInspector : Editor
 
         if (GUI.changed)
             Current.UpdateMarker();
+    }
+}*/
+
+[CustomEditor(typeof(BoardGenerator))]
+public class jnsp : Editor
+{
+    public BoardGenerator Current
+    {
+        get
+        {
+            return (BoardGenerator)target;
+        }
+    }
+
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        if (GUILayout.Button("UPDT BOARD"))
+            Current.UpdateBoard();
     }
 }

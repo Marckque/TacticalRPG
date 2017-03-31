@@ -166,10 +166,10 @@ public class BoardEditor : MonoBehaviour
         }
 
         LevelData board = ScriptableObject.CreateInstance<LevelData>();
-        board.m_Tiles = new List<Vector3>(m_Tiles.Count);
+        board.Tiles = new List<Vector3>(m_Tiles.Count);
         foreach(Tile t in m_Tiles.Values)
         {
-            board.m_Tiles.Add(new Vector3(t.GetPosition.x, t.GetHeight, t.GetPosition.z));
+            board.Tiles.Add(new Vector3(t.GetPosition.x, t.GetHeight, t.GetPosition.z));
         }
 
         string fileName = string.Format("Assets/Resources/Levels/{1}_{2}.asset", filePath, name, Directory.GetFiles(filePath).Length.ToString());
@@ -186,7 +186,7 @@ public class BoardEditor : MonoBehaviour
             return;
         }
 
-        foreach (Vector3 vector in m_LevelData.m_Tiles)
+        foreach (Vector3 vector in m_LevelData.Tiles)
         {
             Tile t = Create();
             t.Load(vector);
